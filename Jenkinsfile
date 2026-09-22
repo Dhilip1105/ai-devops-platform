@@ -16,7 +16,12 @@ pipeline {
                 bat 'docker build -t ai-devops-app:1.0 .'
             }
         }
-
+stage('Start Minikube') {
+    steps {
+        echo 'Checking Minikube cluster...'
+        bat 'minikube status || minikube start --driver=docker'
+    }
+}
         stage('Load Image into Minikube') {
             steps {
                 echo 'Loading Docker image into Minikube...'
@@ -50,4 +55,4 @@ pipeline {
             echo 'CI/CD pipeline failed.'
         }
     }
-}
+}git add Jenkinsfile
