@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
                 echo 'Checking out source code...'
@@ -16,12 +15,14 @@ pipeline {
                 bat 'docker build -t ai-devops-app:1.0 .'
             }
         }
-stage('Start Minikube') {
-    steps {
-        echo 'Checking Minikube cluster...'
-        bat 'minikube status || minikube start --driver=docker'
-    }
-}
+
+        stage('Start Minikube') {
+            steps {
+                echo 'Checking Minikube cluster...'
+                bat 'minikube status'
+            }
+        }
+
         stage('Load Image into Minikube') {
             steps {
                 echo 'Loading Docker image into Minikube...'
@@ -55,4 +56,4 @@ stage('Start Minikube') {
             echo 'CI/CD pipeline failed.'
         }
     }
-}git add Jenkinsfile
+}
