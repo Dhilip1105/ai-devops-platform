@@ -18,8 +18,11 @@ pipeline {
 
 stage('Start Minikube') {
     steps {
-        echo 'Checking Kubernetes cluster...'
-        bat 'kubectl get nodes'
+        echo 'Checking Jenkins Kubernetes configuration...'
+        bat 'whoami'
+        bat 'echo KUBECONFIG=%KUBECONFIG%'
+        bat 'kubectl config current-context'
+        bat 'kubectl config view --minify'
     }
 }
 
