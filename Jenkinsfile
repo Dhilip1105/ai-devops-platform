@@ -19,7 +19,7 @@ pipeline {
 stage('Start Minikube') {
     steps {
         echo 'Checking existing Minikube cluster...'
-        bat 'set MINIKUBE_HOME=C:\\Users\\Dhili\\.minikube && minikube status -p minikube'
+        bat 'minikube status -p minikube'
     }
 }
 
