@@ -18,11 +18,9 @@ pipeline {
 
 stage('Start Minikube') {
     steps {
-        echo 'Checking Jenkins Kubernetes configuration...'
-        bat 'whoami'
-        bat 'echo KUBECONFIG=%KUBECONFIG%'
-        bat 'kubectl config current-context'
-        bat 'kubectl config view --minify'
+        echo 'Starting Jenkins Minikube cluster...'
+        bat 'minikube start -p minikube --driver=docker'
+        bat 'kubectl get nodes'
     }
 }
 
