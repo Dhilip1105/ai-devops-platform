@@ -17,11 +17,14 @@ pipeline {
         }
 
         stage('Start Minikube') {
-            steps {
-                echo 'Checking Minikube cluster...'
-                bat 'minikube status'
-            }
-        }
+    steps {
+        echo 'Checking Minikube environment...'
+        bat 'whoami'
+        bat 'where minikube'
+        bat 'minikube profile list'
+        bat 'minikube status'
+    }
+}
 
         stage('Load Image into Minikube') {
             steps {
