@@ -18,9 +18,8 @@ pipeline {
 
 stage('Start Minikube') {
     steps {
-        echo 'Starting Minikube cluster...'
-        bat 'minikube start --driver=docker'
-        bat 'minikube status'
+        echo 'Checking existing Minikube cluster...'
+        bat 'set MINIKUBE_HOME=C:\\Users\\Dhili\\.minikube && minikube status -p minikube'
     }
 }
 
