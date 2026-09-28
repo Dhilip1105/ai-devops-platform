@@ -16,12 +16,10 @@ pipeline {
             }
         }
 
-        stage('Start Minikube') {
+stage('Start Minikube') {
     steps {
-        echo 'Checking Minikube environment...'
-        bat 'whoami'
-        bat 'where minikube'
-        bat 'minikube profile list'
+        echo 'Starting Minikube cluster...'
+        bat 'minikube start --driver=docker'
         bat 'minikube status'
     }
 }
