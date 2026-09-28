@@ -18,8 +18,8 @@ pipeline {
 
 stage('Start Minikube') {
     steps {
-        echo 'Checking existing Minikube cluster...'
-        bat 'set "MINIKUBE_HOME=C:\\Users\\Dhili\\.minikube" && minikube status -p minikube'
+        echo 'Checking Kubernetes cluster...'
+        bat 'kubectl get nodes'
     }
 }
 
